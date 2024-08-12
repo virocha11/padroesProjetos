@@ -18,6 +18,7 @@ Análise de códigos com Padrões de Projeto de Software. Nesse documento veremo
 Se a classe Singleton é instanciada pela primeira vez, na linha 9, a verificação `hasattr(cls, '__instance')` retorna False, pois o atributo `__instance` ainda não existe. Quando a classe Singleton for instanciada novamente, a verificação `hasattr(cls, '__instance')` retorna True. Logo, a mesma instância é retornada, sem criar uma nova.
 
 - Abaixo encontra-se o diagrama da classe Singleton no padrão UML.
+
 ![Diagrama UML da classe Singleton](https://upload.wikimedia.org/wikipedia/commons/d/dc/Singleton_pattern_uml.png)
 
 Nota: Cabe dizer, que embora o Singleton resolva dois problemas ele infringe o princípio de Responsabilidade Única, dos princípios SOLID.
