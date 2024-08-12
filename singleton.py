@@ -1,4 +1,4 @@
-# código retirado do site GeeksforGeeks
+# Fonte: site GeeksforGeeks
 
 class Singleton(object):
     def __new__(cls):
