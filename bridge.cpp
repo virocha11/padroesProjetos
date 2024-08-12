@@ -5,19 +5,19 @@ using namespace std;
 
 // Abstraction: Shape
 class Shape {
-public:
+    public:
     virtual void draw() = 0;
 };
 
 // Implementations: Renderer (VectorRenderer and
 // RasterRenderer)
 class Renderer {
-public:
+    public:
     virtual void render() = 0;
 };
 
 class VectorRenderer : public Renderer {
-public:
+    public:
     void render() override
     {
         cout << "Rendering as a vector\n";
@@ -25,7 +25,7 @@ public:
 };
 
 class RasterRenderer : public Renderer {
-public:
+    public:
     void render() override
     {
         cout << "Rendering as a raster\n";
@@ -34,7 +34,7 @@ public:
 
 // Concrete Abstractions: Circle and Square
 class Circle : public Shape {
-public:
+    public:
     Circle(Renderer& renderer)
         : renderer(renderer)
     {
@@ -45,23 +45,23 @@ public:
         renderer.render();
     }
 
-private:
+    private:
     Renderer& renderer;
 };
 
 class Square : public Shape {
-public:
+    public:
     Square(Renderer& renderer)
         : renderer(renderer)
     {
     }
 
-    void draw() override{
+    void draw() override {
         cout << "Drawing a square\n";
         renderer.render();
     }
 
-private:
+    private:
     Renderer& renderer;
 };
 
