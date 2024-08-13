@@ -33,7 +33,7 @@ Nota: Cabe dizer, que embora o Singleton resolva dois problemas ele infringe o p
 
 É um padrão de projeto estrutural usado para evitar que um conjunto de classes, ou classe grande, tenha uma ligação permanente entre a abstração e a implementação, dividindo em duas hierarquias independentes entre si. Assim, diminuindo o acoplamento entre elas. Esse padrão é usado quando nos deparamos com problemas de escalabilidade, que consiste em expandir o software de modo eficiente. A solução abordada para o Bridge é de utilizar o relacionamento de composição entre a implementação e abstração, ao invés de herança, extraindo hierarquias de classes. Desse modo, será possível modificar as classes de maneira independente em relação a outra hierarquia. Porque, a classe de abstração não vai se encarregar de todos os trabalhos. O trabalho será delegado ao objeto de implementação.
 
-[Veja um exemplo do padrão Bridge em C++, adpatado do site GeeksforGeeks.](https://github.com/virocha11/padroesProjetos/blob/d30ea64774d48fed801ad01d2c8a0ab85423e47e/bridge.cpp#L1-L82)
+[Veja um exemplo do padrão Bridge em C++, adpatado do site GeeksforGeeks.] (https://github.com/virocha11/padroesProjetos/blob/d30ea64774d48fed801ad01d2c8a0ab85423e47e/bridge.cpp#L1-L82)
 
   Observe que o código possui duas classes abstratas: `Shape` (abstração) que define a interface para os tipos de formas Circle e Square. Ela possui um método virtual puro `draw()`, que será implementado pelas subclasses. E `Renderer`(implementação) que define a interface para as formas de renderização, VectorRenderer e RasterRenderer. Essa classe tem o método virtual puro `render()`, o qual será implementado pelas classes concretas.
 As classes concretas `VectorRenderer` e `RasterRenderer` herdam da implementação Renderer e escrevem o método `render()`. Já as classes `Circle` e `Square` escrevem o código `draw()` da abstração Square. Ambas as classes estão dependendo de uma referência ou instância de Renderer, passada no método construtor da classe, que vai realizar o processo de renderização específico de cada forma. 
@@ -50,12 +50,11 @@ Fonte: commons.wikimedia.org
 
 É um padrão de projeto comportamental que serve para reduzir as dependências entre objetos, diminuindo o nível de acoplamento entre eles. Ele limita as colaborações dos objetos para se comunicarem apenas com um objeto mediador, o qual é responsável por enviar as mensagens para os demais. O Mediator é usado para casos em que há dificuldade de mudança nas classes, devido ao acoplamento com outras e também em casos que é preciso reutilizar o código mas ele dependente muito de outros componentes. Nesses casos, o padrão diz que os componentes devem colaborar indiretamente uns com os outros, focando a comunicação em única classe mediadora. Desse modo, os componentes estaram alheios aos outros, aumentando a facilidade de mudança e reutilização do código.
 
-[Veja um exemplo do padrão Mediator em Java]()
+[Veja um exemplo do padrão Mediator em Java, retirado do site GeeksforGeeks] (https://github.com/virocha11/padroesProjetos/blob/d269ff3f49ef33524595f2dad7df0cc9b5cd8741/mediator.java#L1-L127)
 
-  Observe que `Buyer` e `AuctionMediator` interajam de forma desacoplada. Se o comportamento do leilão precisar mudar, pode-se modificar o AuctionMediator sem impactar os Buyer diretamente. 
-A interface `Mediator` está definindo os métodos, `addBuyer()` e `findHighestBidder()` que devem ser implementados por qualquer classe mediadora derivada dela. A classe derivada `AuctionMediator` implementa os métodos da interface Mediator e armazena uma lista de compradores (buyers). 
-A classe abstrata `Buyer` estabelece os métodos `bid(int price)` e `cancelTheBid()` que devem ser implementados por qualquer comprador. Repare que cada comprador tem uma referência a interface `Mediator` para a interação entre elas, além de armazenar o nome e o valor do lance (price). A classe `AuctionBuyer` é uma implementação concreta de `Buyer`.
-A função `main()` está criando uma instância do mediador "AuctionMediator" e também adicionando três compradores (b1, b2 e b3). Cada comprador faz um lance, e o mediador escolhe o lance mais alto. O mediador determina novamente quem tem o lance mais alto entre os compradores restantes após o cancelamento do lance b2.
+  Observe que a interface `Mediator` está definindo os métodos, `addBuyer()` e `findHighestBidder()` que devem ser implementados por qualquer classe mediadora derivada dela. A classe derivada `AuctionMediator` implementa os métodos da interface Mediator e armazena uma lista de compradores (buyers). 
+A classe abstrata `Buyer` estabelece os métodos `bid(int price)` e `cancelTheBid()` que devem ser implementados por qualquer comprador. Repare que cada comprador tem uma referência a interface `Mediator` para a interação entre elas, além de armazenar o nome e o valor do lance (price). A classe `AuctionBuyer` é uma implementação concreta de `Buyer`. Perceba  que `Buyer` e `AuctionMediator` interajam de forma desacoplada, ou seja, se comportamento do leilão precisar mudar, é possível modificar AuctionMediator sem impactar o Buyer diretamente.
+A função `main()` está criando uma instância do mediador `AuctionMediator` e também adicionando três compradores (b1, b2 e b3). Cada comprador faz um lance, e o mediador escolhe o lance mais alto. O mediador determina novamente quem tem o lance mais alto entre os compradores restantes após o cancelamento do lance b2.
 
 
 - Veja abaixo o diagrama do Mediator no padrão UML. 
@@ -65,7 +64,7 @@ Fonte: refactoring.guru
 <br/>
 - Referências
 
-Refactoring Guru
+Refactoring Guru <br/>
 https://refactoring.guru/pt-br/design-patterns
 
 https://refactoring.guru/pt-br/design-patterns/singleton
@@ -74,14 +73,14 @@ https://refactoring.guru/pt-br/design-patterns/bridge
 
 https://refactoring.guru/pt-br/design-patterns/mediator
 
-GeeksforGeeks 
+GeeksforGeeks <br/>
 https://www.geeksforgeeks.org/singleton-pattern-in-python-a-complete-guide/
 
 https://www.geeksforgeeks.org/bridge-method-c-design-patterns/
 
 https://www.geeksforgeeks.org/mediator-design-pattern-in-java/
 
-Wikimedia Commons
+Wikimedia Commons <br/>
 https://commons.wikimedia.org/wiki/File:Singleton_pattern_uml.png
 
 https://commons.wikimedia.org/wiki/File:Bridge_UML_class_diagram.svg
